@@ -36,26 +36,20 @@ Se crean 4 recursos, los cuales son
 * Public and private IP address: las privadas permiten la comunicacion entre los recursos de azure, como interfaces de red de VM, equilibradores de carga o puertas de enlace de aplicaciones. Las publicas permiten a los recursos de internet la comunicacion entrante a los recursos de azure. Permiten que los recursos de Azure se comuniquen con los servicios de Azure orientados al publico e Internet
 * Virtual Machine: Se puede ver como otro equipo fisico, como un portatil, un smartphone o un servidor. Tiene CPU, memoria, discos para almacenar los archivos y pueden conectarse a internet si es necesario.
 3. ¿Al cerrar la conexión ssh con la VM, por qué se cae la aplicación que ejecutamos con el comando npm FibonacciApp.js? ¿Por qué debemos crear un Inbound port rule antes de acceder al servicio?
-
 Si se cierra la conexion tambien se cortan todos los procesos que se estan ejecutando, se debe configurar para que sea con forever, puesto que por defecto se corre por el puerto 22 y los demas no son aceptados
 4. Adjunte tabla de tiempos e interprete por qué la función tarda tando tiempo.
 Adjunte imágen del consumo de CPU de la VM e interprete por qué la función consume esa cantidad de CPU.
 Adjunte la imagen del resumen de la ejecución de Postman. Interprete:
 Tiempos de ejecución de cada petición.
 Si hubo fallos documentelos y explique.
-
 Podemos ver las imagenes de cada ejecucion en la parte de superior, se generaron fallos donde se puede pensar que es porque el mensaje nunca se pudo responder o no sabia que responder a la peticion, en ultimo caso por temas de timeout
 5. ¿Cuál es la diferencia entre los tamaños B2ms y B1ls (no solo busque especificaciones de infraestructura)?
-
 La B1ls se puede considerar una maquina basica, pues los recursos son muy simples y se demora mas en manejar una peticion, por otro lado la B2ms tiene mas capacidad, tiene mayor facilidad y rapidez para procesar cosas, de igual manera tiene un mejor uso de los recursos y mayor cantidad de entradas
 6. ¿Aumentar el tamaño de la VM es una buena solución en este escenario?, ¿Qué pasa con la FibonacciApp cuando cambiamos el tamaño de la VM?
-
 Aumentando el tamaño de la maquina permite disminuir el tiempo que toma en procesar la informacion para encontrar un fibonacci
 7. ¿Qué pasa con la infraestructura cuando cambia el tamaño de la VM? ¿Qué efectos negativos implica?
-
 Principalmente se genera un aumento en el costo de los precios, puesto que necesita mas potencia para que las respuestas sean mas cortas.
 8. ¿Hubo mejora en el consumo de CPU o en los tiempos de respuesta? Si/No ¿Por qué?
-
 Sí se mejora el consumo de la CPU, ya que la maquina aprovecha mejor los recursos, con mayor eficiencia
 9. Aumente la cantidad de ejecuciones paralelas del comando de postman a 4. ¿El comportamiento del sistema es porcentualmente mejor?
 

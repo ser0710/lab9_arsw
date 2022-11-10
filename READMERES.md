@@ -42,7 +42,9 @@ Adjunte imágen del consumo de CPU de la VM e interprete por qué la función co
 Adjunte la imagen del resumen de la ejecución de Postman. Interprete:
 Tiempos de ejecución de cada petición.
 Si hubo fallos documentelos y explique.
+
 Podemos ver las imagenes de cada ejecucion en la parte de superior, se generaron fallos donde se puede pensar que es porque el mensaje nunca se pudo responder o no sabia que responder a la peticion, en ultimo caso por temas de timeout
+
 5. ¿Cuál es la diferencia entre los tamaños B2ms y B1ls (no solo busque especificaciones de infraestructura)?
 La B1ls se puede considerar una maquina basica, pues los recursos son muy simples y se demora mas en manejar una peticion, por otro lado la B2ms tiene mas capacidad, tiene mayor facilidad y rapidez para procesar cosas, de igual manera tiene un mejor uso de los recursos y mayor cantidad de entradas
 6. ¿Aumentar el tamaño de la VM es una buena solución en este escenario?, ¿Qué pasa con la FibonacciApp cuando cambiamos el tamaño de la VM?

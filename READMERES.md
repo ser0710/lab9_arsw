@@ -55,6 +55,15 @@ Sí se mejora el consumo de la CPU, ya que la maquina aprovecha mejor los recurs
 
 ## PROCESOS DEL SEGUNDO PUNTO
 
+![image](https://user-images.githubusercontent.com/90010884/200987095-3b795dd5-eb43-4a6d-bf67-18b421ee29e3.png)
+![image](https://user-images.githubusercontent.com/90010884/200987183-db618823-41d1-4519-a15f-1ebd9726b160.png)
+![image](https://user-images.githubusercontent.com/90010884/200987207-585da2ab-f399-4b07-925f-b4d6abd12ace.png)
+![image](https://user-images.githubusercontent.com/90010884/200987214-851b4b23-31e6-45d7-b834-a2fb43db661e.png)
+![image](https://user-images.githubusercontent.com/90010884/200987221-e4e2b1f4-26d8-4719-9e2b-8f83dc8b0328.png)
+![image](https://user-images.githubusercontent.com/90010884/200987237-eca2b1d1-70a8-4cbe-b66b-6a022e0135d1.png)
+![image](https://user-images.githubusercontent.com/90010884/200987249-459f2f0e-466a-4bc1-80a8-9694594f28bb.png)
+
+
 1. ¿Cuáles son los tipos de balanceadores de carga en Azure y en qué se diferencian?, ¿Qué es SKU, qué tipos hay y en qué se diferencian?, ¿Por qué el balanceador de carga necesita una IP pública?
 Existe el balanceador publico y el privado. El primero proporciona conexiones de salida para maquinas virtuales en una red virtual. Esto mediante traducciones de sus IP privadas a IP publicas. La otra necesita direcciones IP privadas solo en el front, estos se usan para equilibrar el trafico dentro de una red virtual.
 
@@ -95,9 +104,24 @@ Es un componente escencial del equilibrador de carga, este define el grupo de re
 3. ¿Cuál es el propósito del Health Probe?
 Ayuda a detectar los estados de los endpoints, la configuracion del Health Probe permite determinar cual backend pool sera recibido en la nueva conexion, detectan fallos de la aplicacion, nos ayuda con el control de flujo para administrar la carga. Si este falla el balanceador dejara de enviar conexiones a las respectivas instancias en mal estado
 4. ¿Cuál es el propósito de la Load Balancing Rule? ¿Qué tipos de sesión persistente existen, por qué esto es importante y cómo puede afectar la escalabilidad del sistema?.
-Permite definir como se distribuye el trafico de todas las instancias dentro del backend pool. Asigna una direccion IP y un front determinado a varias direcciones IP y puertod del Back 
+Permite definir como se distribuye el trafico de todas las instancias dentro del backend pool. Asigna una direccion IP y un front determinado a varias direcciones IP y puerto del Back.
+Las sesiones existentes son:
+* None: Las solicitudes sucesivas del mismo cliente pueden ser manejadas por cualquier maquina virtual
+* Client IP: Las solicitudes sucesivas de la misma IP del cliente seran manejadas por la misma maquina virtual
+* Client IP and Protocol: Las soilicitudes de la misma combinacion de protocolo y direccion IP del cliente seran manejadas por la misma maquina virtual
 5. ¿Qué es una Virtual Network? ¿Qué es una Subnet? ¿Para qué sirven los address space y address range?
+Es el bloque fundamental de una red privada en azure. Permite muchos tipos de recursos como las maquinas virtuales, para poder comunicarse de forma segura entre usuarios, con internet y con redes locales.
+
+La subnet es una red dentro de una red, las subredes hacen que las redes sean mas eficientes. Con esto el trafico de la red puede recorrer una distancia mas corta sin tener que pasar por routers innecesarios
+
+Address Space: Conjunto de direcciones de memoria virtual que puede utilizar. El espacio de direcciones es privado para todos los procesos a menos que se comparta
+
+Address Range: Son los rangos de direcciones de redes privadas
+
 6. ¿Qué son las Availability Zone y por qué seleccionamos 3 diferentes zonas?. ¿Qué significa que una IP sea zone-redundant?
+Son data centers separados de forma fisica y logica con su propia fuente de electricidad, conectividad y sistema de enfriamiento. Seleccionamos las 3 puesto que esto nos ayuda a aumentar la disponibilidad y resistencia de las aplicaciones con el respaldo de un SLA con un tiempo de actividad de 99.99% para VM. Tambien habilita la escalabilidad avanzada para las aplicaciones que admiten el escalado activo-activo multisitio. Por ultimo mejora el RTO y RPO
 7. ¿Cuál es el propósito del Network Security Group?
+Es un firewall a nivel de red con un conjunto de reglas que gestiona permitiendo o denegando el trafico de red, tando de entrada como de salida a los recursos de azure
 8. Informe de newman 1 (Punto 2)
 9. Presente el Diagrama de Despliegue de la solución.
+

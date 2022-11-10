@@ -1,3 +1,9 @@
+# Integrantes
+## Juan Diego Becerra Peña
+## Sergio Andres Rozo Pulido
+
+# Solucion
+
 ## PROCESOS DEL PRIMER PUNTO
 
 ![image](https://user-images.githubusercontent.com/90010884/200722968-92c9f5eb-c5c3-4931-86c9-c26748e7e095.png)

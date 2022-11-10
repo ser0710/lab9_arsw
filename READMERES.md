@@ -54,3 +54,50 @@ Sí se mejora el consumo de la CPU, ya que la maquina aprovecha mejor los recurs
 9. Aumente la cantidad de ejecuciones paralelas del comando de postman a 4. ¿El comportamiento del sistema es porcentualmente mejor?
 
 ## PROCESOS DEL SEGUNDO PUNTO
+
+1. ¿Cuáles son los tipos de balanceadores de carga en Azure y en qué se diferencian?, ¿Qué es SKU, qué tipos hay y en qué se diferencian?, ¿Por qué el balanceador de carga necesita una IP pública?
+Existe el balanceador publico y el privado. El primero proporciona conexiones de salida para maquinas virtuales en una red virtual. Esto mediante traducciones de sus IP privadas a IP publicas. La otra necesita direcciones IP privadas solo en el front, estos se usan para equilibrar el trafico dentro de una red virtual.
+
+Las SKU son una combinacion de maquinas virtuales y una especificacion de de hardware determinada.
+Tipos:
+* Dadsv5
+  * Tipo 1: usa procesador EPYC 7763v de AMD, ofrece 64 nucleos fisicos, 112 vCPU y 768 GiB de RAM. Este tipo ejecuta maquinas virtuales de la serie Dadsv5
+* Dasv5
+  * Tipo 1: usa procesador EPYC 7763v de AMD, ofrece 64 nucleos fisicos, 112 vCPU y 768 GiB de RAM. Este tipo ejecuta maquinas virtuales de la serie Dasv5
+* Dasv4
+  * Tipo 1: usa procesador EPYC 7452 de 2,35 GHz de AMD, ofrece 64 nucleos fisicos, 96 vCPU y 672 GiB de RAM. Este tipo ejecuta maquinas virtuales de la serie Dasv4
+  * Tipo 2: usa procesador EPYC 7763v de AMD, ofrece 64 nucleos fisicos, 112 vCPU y 768 GiB de RAM. Este tipo ejecuta maquinas virtuales de la serie Dasv4
+* DCadsv5
+  * Tipo 1: usa procesador EPYC 7763v de AMD 3ra generacion, ofrece 64 nucleos fisicos, 112 vCPU y 768 GiB de RAM. Este tipo ejecuta maquinas virtuales de la serie DCadsv5
+* DCasv5 
+  * Tipo 1: usa procesador EPYC 7763v de AMD de 3ra generacion, ofrece 64 nucleos fisicos, 112 vCPU y 768 GiB de RAM. Este tipo ejecuta maquinas virtuales de la serie DCasv5
+* DCSv3 
+  * Tipo 1: usa procesador escalable Intel Xeon 8370C de 3ra generacion, ofrece 48 nucleos fisicos, 48 vCPU y 384 GiB de RAM. Este tipo ejecuta maquinas virtuales de la serie DCsv3
+* DCdsv3
+  * Tipo 1: usa procesador escalable Intel Xeon 8370C de 3ra generacion, ofrece 48 nucleos fisicos, 48 vCPU y 384 GiB de RAM. Este tipo ejecuta maquinas virtuales de la serie DCdsv3
+* DCsv2
+  * Tipo 1: usa procesador Intel Coffee Lake, ofrece 8 nucleos fisicos, 8 vCPU y 64 GiB de RAM. Este tipo ejecuta maquinas virtuales de la serie DCsv2
+* Ddsv5
+  * Tipo 1: usa procesador Intel Ice Lake, ofrece 64 nucleos fisicos, 119 vCPU y 768 GiB de RAM. Este tipo ejecuta maquinas virtuales de la serie Ddsv5
+* Ddsv4
+  * Tipo 1: usa procesador Intel Cascade Lake, ofrece 52 nucleos fisicos, 80 vCPU y 504 GiB de RAM. Este tipo ejecuta maquinas virtuales de la serie Ddsv4
+  * Tipo 2: usa procesador Intel Ice Lake, ofrece 64 nucleos fisicos, 119 vCPU y 768 GiB de RAM. Este tipo ejecuta maquinas virtuales de la serie Ddsv5.
+* Dsv5
+  * Tipo 1: usa procesador Intel Ice Lake, ofrece 64 nucleos fisicos, 119 vCPU y 768 GiB de RAM. Este tipo ejecuta maquinas virtuales de la serie Dsv5
+* Dsv4
+  * Tipo 1: usa procesador Intel Cascade Lake, ofrece 52 nucleos fisicos, 80 vCPU y 504 GiB de RAM. Este tipo ejecuta maquinas virtuales de la serie Dsv4
+  * Tipo 2: usa procesador Intel Ice Lake, ofrece 64 nucleos fisicos, 119 vCPU y 768 GiB de RAM. Este tipo ejecuta maquinas virtuales de la serie Dsv4
+
+2. ¿Cuál es el propósito del Backend Pool?
+Es un componente escencial del equilibrador de carga, este define el grupo de recursos que atenderan el trafico de una regla de equilibrio. la configuracion puede ser por:
+* Tarjeta de interfaz de red 
+* Direccion IP
+3. ¿Cuál es el propósito del Health Probe?
+Ayuda a detectar los estados de los endpoints, la configuracion del Health Probe permite determinar cual backend pool sera recibido en la nueva conexion, detectan fallos de la aplicacion, nos ayuda con el control de flujo para administrar la carga. Si este falla el balanceador dejara de enviar conexiones a las respectivas instancias en mal estado
+4. ¿Cuál es el propósito de la Load Balancing Rule? ¿Qué tipos de sesión persistente existen, por qué esto es importante y cómo puede afectar la escalabilidad del sistema?.
+Permite definir como se distribuye el trafico de todas las instancias dentro del backend pool. Asigna una direccion IP y un front determinado a varias direcciones IP y puertod del Back 
+5. ¿Qué es una Virtual Network? ¿Qué es una Subnet? ¿Para qué sirven los address space y address range?
+6. ¿Qué son las Availability Zone y por qué seleccionamos 3 diferentes zonas?. ¿Qué significa que una IP sea zone-redundant?
+7. ¿Cuál es el propósito del Network Security Group?
+8. Informe de newman 1 (Punto 2)
+9. Presente el Diagrama de Despliegue de la solución.
